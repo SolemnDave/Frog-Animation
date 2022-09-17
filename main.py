@@ -1,26 +1,26 @@
-import pygame, sys
+import pygame, sys, os
 
 class Player(pygame.sprite.Sprite):
     def __init__(self, pos_x, pos_y):
         super().__init__()
         self.sprites = []
         self.is_animating = False
-        self.sprites.append(pygame.image.load('attack_1.png'))
-        self.sprites.append(pygame.image.load('attack_2.png'))
-        self.sprites.append(pygame.image.load('attack_3.png'))
-        self.sprites.append(pygame.image.load('attack_4.png'))
-        self.sprites.append(pygame.image.load('attack_5.png'))
-        self.sprites.append(pygame.image.load('attack_6.png'))
-        self.sprites.append(pygame.image.load('attack_7.png'))
-        self.sprites.append(pygame.image.load('attack_8.png'))
-        self.sprites.append(pygame.image.load('attack_9.png'))
-        self.sprites.append(pygame.image.load('attack_10.png'))
+        self.sprites.append(pygame.image.load(os.path.join("assets",'attack_1.png')))
+        self.sprites.append(pygame.image.load(os.path.join("assets",'attack_2.png')))
+        self.sprites.append(pygame.image.load(os.path.join("assets",'attack_3.png')))
+        self.sprites.append(pygame.image.load(os.path.join("assets",'attack_4.png')))
+        self.sprites.append(pygame.image.load(os.path.join("assets",'attack_5.png')))
+        self.sprites.append(pygame.image.load(os.path.join("assets",'attack_6.png')))
+        self.sprites.append(pygame.image.load(os.path.join("assets",'attack_7.png')))
+        self.sprites.append(pygame.image.load(os.path.join("assets",'attack_8.png')))
+        self.sprites.append(pygame.image.load(os.path.join("assets",'attack_9.png')))
+        self.sprites.append(pygame.image.load(os.path.join("assets",'attack_10.png')))
         self.current_sprite = 0
         self.image = self.sprites[self.current_sprite]
 
         self.rect = self.image.get_rect()
         self.rect.topleft = [pos_x,pos_y]
-        self.action = pygame.mixer.Sound("Frog-sound-ribbit.mp3")
+        self.action = pygame.mixer.Sound(os.path.join("assets","Frog-sound-ribbit.mp3"))
 
     def animate(self):
         self.is_animating = True
